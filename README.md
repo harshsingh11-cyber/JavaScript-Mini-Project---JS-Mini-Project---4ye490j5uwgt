@@ -16,7 +16,7 @@ In this game, there are 16 cards where every two cards have the same images, but
 ```
 
 ## 🔗 Links
-### Project link :- ()
+### Project link :- (https://crypto-curency-pair-game.netlify.app/)
 
 ## Tech Stack
 
@@ -60,7 +60,11 @@ To deploy this project
 
 
 ## Screenshots
+![Screenshot (50)](https://user-images.githubusercontent.com/65847214/202692189-ae247c5b-946e-41d8-b018-1838e490564b.png)
 
+![Screenshot (51)](https://user-images.githubusercontent.com/65847214/202692210-6252ecd8-8910-43e4-85bd-1d7f852c936c.png)
+
+![Screenshot (52)](https://user-images.githubusercontent.com/65847214/202692243-eb0c372e-f945-4353-8ff0-218edf9011a4.png)
 
 ## Lessons Learned
 

@@ -4,6 +4,8 @@ let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
 
+var hr = 0 ;
+var min = 0;
 var sec = 0;
 var count = 0;
 var max = 0;
@@ -94,19 +96,38 @@ function stopWatch() {
             sec += 1;
             count = 0;
         }
+        if(sec == 60){
+            min+=1;
+            sec = 0;
+        
+        }
+        if(min == 60){
+            hr+=1;
+            min = 0;
+            sec = 0;
+        }
+        var minStr = min;
+        var hrStr = hr;
         var secStr = sec;
-        var countStr = count;
-
+        // var countStr = count;
+          
 
         if (sec < 10) {
             secStr = "0" + secStr;
         }
-        if (count < 10) {
-            countStr = "0" + countStr;
+        if (min < 10) {
+            minStr = "0" + minStr;
         }
+        if (hr < 10) {
+            hrStr = "0" + hrStr;
+        }
+
         document.getElementById('sec').innerHTML = secStr;
+        document.getElementById('min').innerHTML = minStr;
+        document.getElementById('hr').innerHTML = hrStr;
+
         // document.getElementById('count').innerHTML = countStr;
-        setTimeout('stopWatch()', 60);
+        setTimeout('stopWatch()',200);
     }
 
 }
@@ -116,5 +137,6 @@ function stope() {
 function reset() {
     timer = false;
     document.getElementById('sec').innerHTML = "00";
-    // document.getElementById('count').innerHTML = "00";
+    document.getElementById('min').innerHTML = "00";
+    document.getElementById('hr').innerHTML = "00";
 }
