@@ -6,27 +6,28 @@ let disableDeck = false;
 
 var sec = 0;
 var count = 0;
+var max = 0;
 let timer = false;
 
-function flipCard({target: clickedCard}) {
-    if(cardOne !== clickedCard && !disableDeck) {
+function flipCard({ target: clickedCard }) {
+    if (cardOne !== clickedCard && !disableDeck) {
         clickedCard.classList.add("flip");
-        if(!cardOne) {
+        if (!cardOne) {
             return cardOne = clickedCard;
         }
         cardTwo = clickedCard;
         disableDeck = true;
         let cardOneImg = cardOne.querySelector(".back-view img").src,
-        cardTwoImg = cardTwo.querySelector(".back-view img").src;
+            cardTwoImg = cardTwo.querySelector(".back-view img").src;
         matchCards(cardOneImg, cardTwoImg);
     }
-   
+
 }
 
 function matchCards(img1, img2) {
-    if(img1 === img2) {
+    if (img1 === img2) {
         matched++;
-        if(matched == 8) {
+        if (matched == 8) {
             setTimeout(() => {
                 return shuffleCard();
             }, 5000);
@@ -36,7 +37,7 @@ function matchCards(img1, img2) {
             setTimeout(() => {
                 return reset();
             }, 5000);
-           
+
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
@@ -72,48 +73,48 @@ function shuffleCard() {
 }
 
 shuffleCard();
-    
+
 cards.forEach(card => {
     card.addEventListener("click", flipCard);
-    card.addEventListener("click",start);
+    card.addEventListener("click", start);
 });
 
-function start(){
+function start() {
     timer = true;
     stopWatch();
 
 }
 
-function stopWatch(){
-    if(timer == true){
+function stopWatch() {
+    if (timer == true) {
 
         count += 1;
 
-        if(count == 100){
-            sec+=1;
-            count=0;
+        if (count == 100) {
+            sec += 1;
+            count = 0;
         }
         var secStr = sec;
-        var countStr =count;
+        var countStr = count;
 
-       
-        if(sec < 10){
+
+        if (sec < 10) {
             secStr = "0" + secStr;
         }
-        if(count < 10){
+        if (count < 10) {
             countStr = "0" + countStr;
         }
         document.getElementById('sec').innerHTML = secStr;
-        document.getElementById('count').innerHTML = countStr;
-        setTimeout('stopWatch()',10);
+        // document.getElementById('count').innerHTML = countStr;
+        setTimeout('stopWatch()', 60);
     }
 
 }
-function stope(){
+function stope() {
     timer = false;
-    }
-    function reset(){
-        timer = false;
-        document.getElementById('sec').innerHTML = "00";
-        document.getElementById('count').innerHTML = "00";
-        }
+}
+function reset() {
+    timer = false;
+    document.getElementById('sec').innerHTML = "00";
+    // document.getElementById('count').innerHTML = "00";
+}
